@@ -1,7 +1,10 @@
 import logging
+import pandas as pd
 
-
+list_df = []
 class DefineEvent:
+    id = 0
+
     def __init__(self, name, date, time, place, total_capacity, remaining_capacity, cost_ticket, discount_code,
                  discount_percent):
         self.name = name
@@ -13,9 +16,24 @@ class DefineEvent:
         self.cost_ticket = cost_ticket
         self.discount_code = discount_code
         self.discount_percent = discount_percent
+        DefineEvent.id += 1
+
+    def convert_to_list(self):
+        event_list = [[DefineEvent.id, self.name, self.date, self.time, self.place,
+                      self.total_capacity, self.remaining_capacity,
+                      self.cost_ticket, self.discount_code, self.discount_percent]]
+        return event_list
 
     def append_to_csvfile(self):
-        pass
+
+        event_list = DefineEvent.convert_to_list(self)
+        event_list_header = ["id", "name", "date", "time", "place",
+                             "total_capacity", "remaining_capacity",
+                             "cost_ticket", "discount_code", "discount_percent"]
+        dataframe = pd.DataFrame(event_list, columns=event_list_header)
+        dataframe.to_csv("event.csv", index=False, mode='a', header=True)
+        list_df.append(dataframe)
+        return dataframe
 
     def tickets_sold(self):
         pass
@@ -31,4 +49,3 @@ class DefineEvent:
         # Add handlers to the logger
         logger.addHandler(f_handler2)
         logger.warning(f'The event is {self.name} in date : {self.date} and in time : {self.time}')
-
