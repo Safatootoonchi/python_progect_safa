@@ -1,0 +1,8 @@
+id,name,date,time,place,total_capacity,remaining_capacity,cost_ticket,discount_code,discount_percent
+2,s,s,s,s,4,4,4,4,4
+id,name,date,time,place,total_capacity,remaining_capacity,cost_ticket,discount_code,discount_percent
+1,w,w,w,w,4,4,4,4,4
+id,name,date,time,place,total_capacity,remaining_capacity,cost_ticket,discount_code,discount_percent
+1,a,a,s,s,3,3,3,3,3
+id,name,date,time,place,total_capacity,remaining_capacity,cost_ticket,discount_code,discount_percent
+1,w,w,w,w,3,3,3,3,3
